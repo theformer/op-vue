@@ -1,0 +1,506 @@
+html {
+  height: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2C3E50;
+  background: #DADCE1;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+h5 {
+  margin: 20px 0px;
+  font-weight: normal;
+}
+
+h4 {
+  margin: 10px 0 5px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  height: 40px;
+  font-size: 15px;
+  font-weight: normal;
+  color: #0068ff;
+
+  span {
+    display: block;
+    padding-left: 10px;
+    line-height: 1.3;
+    border-left: 3px solid #0068ff;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #666666;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input:invalid,
+textarea:invalid {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar-track {
+  opacity: 0;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #dadce1;
+}
+
+//chrome自动填充去掉背景色
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 999999s;
+  -webkit-transition: color 999999s ease-out, background-color 999999s ease-out;
+}
+
+/* fix browser override */
+textarea {
+  font-family: Arial;
+}
+
+//时间范围datepicker样式
+.el-date-editor .el-range-separator {
+  padding: 0;
+  width: 8%;
+}
+
+/* ================ 表格通用样式 ========================== */
+.pt-table {
+  &.inside-margin{
+    padding: 0 20px 10px;
+  }
+
+  .thead {
+    background: #F6F7FB;
+    color: dimgray;
+    text-align: center;
+  }
+
+  /*区分表头颜色*/
+  .dark {
+    &.thead {
+      background: #909399;
+      color: #fff;
+    }
+  }
+
+  .create-date{
+    color: #909399;
+  }
+
+  .tbody {
+    text-align: center;
+  }
+
+  .copy-tbody{
+    text-align: center;
+    color: #EE2737;
+    .create-date{
+      color: #EE2737;
+    }
+    .btn-operation{
+      color: #EE2737;
+    }
+    .column-text-green{
+      color: #EE2737;
+    }
+  }
+
+  .el-pagination {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .column-text-red{
+    color: #EE2737;
+  }
+
+  .column-text-green{
+    color: #59C030;
+  }
+
+  .icon-blue{
+    color: #0094F9
+  }
+
+  .pt-table-radio{
+    .el-radio__label{
+      display: none;
+    }
+  }
+  // 分页器隐藏最大页数
+  .pt-table-hideMaxPage{
+    .el-pager{
+      li:last-child{
+        display: none;
+      }
+    }
+  }
+}
+
+/* ================ 查询条件框 ========================== */
+.form-label {
+  .el-form-item {
+    display: inline-table;
+
+    &.right-button-operation{
+      float: right;
+      margin-right: 25px;
+    }
+
+    label.el-form-item__label {
+      display: table-cell;
+      float: none;
+      border: 1px solid #bfcbd9;
+      border-right: 0;
+      border-bottom-left-radius: 4px;
+      border-top-left-radius: 4px;
+      background-color: #fbfdff;
+      padding: 0 10px;
+      height: 36px;
+      width: 1px;
+      white-space: nowrap;
+      border-right: 0;
+    }
+
+    .el-form-item__content {
+      display: table-cell;
+      line-height: 1;
+
+      .el-input__inner {
+        height: 42px;
+        box-sizing: border-box;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
+form.flex {
+  .el-form-item {
+    width: 100%;
+  }
+
+  .double-input {
+    width: 100% !important;
+  }
+}
+
+form.fixed-width {
+  & > .el-row {
+    & > [class*=el-col-] {
+      padding-right: 25px;
+      min-height: 60px;
+    }
+
+    @for $i from 1 through 20 {
+      & > .el-col-#{$i} {
+        width: 50px * $i;
+      }
+    }
+  }
+}
+
+/* READONLY */
+.el-input {
+  &.is-readonly {
+    .el-input__inner {
+      background-color: #f5f7fa;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.el-textarea {
+  &.is-readonly {
+    .el-textarea__inner {
+      background-color: #f5f7fa;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.el-popover {
+  word-wrap:break-word;
+  word-break:break-all;
+}
+
+.el-range-editor {
+  &.is-readonly {
+    background-color: #f5f7fa;
+
+    .el-range-input {
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+  }
+}
+
+/*===============FAST STYLE =======================*/
+.margin-top10 {
+  margin-top: 10px;
+}
+
+.margin-top15 {
+  margin-top: 15px;
+}
+
+.margin-top20 {
+  margin-top: 20px;
+}
+
+/*上传图片组件控制加号是否显示*/
+.upload-imgDialog {
+  .upload-view {
+    .el-upload--picture-card {
+      display: none;
+    }
+  }
+
+  .multipleBox {
+    padding-bottom: 8px;
+    margin-right: -8px;
+    max-height: 400px;
+    overflow: auto;
+  }
+}
+
+/*风控资料信息存放图片模拟一个input框*/
+.box-card {
+  .relation-item {
+    h3 {
+      font-size: 14px;
+    }
+  }
+
+  .el-select, .el-date-editor, .el-date-editor--daterange {
+    width: 100% !important;
+  }
+
+  .picture-cont {
+    -webkit-appearance: none;
+    background-color: #fff;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #dcdfe6;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 42px;
+    line-height: 42px;
+    outline: 0;
+    padding: 0 15px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.address-cascader {
+  .el-cascader {
+    width: 100% !important;
+
+    .el-cascader__label {
+      line-height: 43px !important;
+    }
+  }
+}
+
+.input-unit {
+  width: 50px !important;
+  position: relative;
+  top:7px;
+
+  .el-input__inner {
+    width: 100%;
+    height: 25px !important;
+    border-radius: 4px !important;
+  }
+}
+
+.input-other {
+  width: 300px !important;
+}
+
+.input-unit-span {
+  margin-left: 5px;
+  position: relative;
+  top:7px;
+}
+
+.no-img {
+  width: 148px;
+  height: 148px;
+  background-color: #fbfdff;
+  border: 1px dashed #c0ccda;
+  border-radius: 6px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 146px;
+  color: #999;
+  margin-top: -20px;
+  margin-bottom: -15px;
+  vertical-align: top;
+}
+
+.btn-operation{
+  font-size: 16px!important;
+  margin-right: 5px;
+  &.btn-operation-delete{
+    color: red;
+    &.is-disabled{
+      color: #C0C4CC;
+    }
+  }
+}
+
+/*===============  重置密码框  =======================*/
+.pt-resetPas-dialog{
+  .el-dialog{
+    box-shadow: 0 0 80px 0 rgba(0, 0, 0, .4);
+  }
+  .el-dialog__header{
+    background: linear-gradient(to bottom, #1d7fe2, #0865c2);
+    padding-top: 10px;
+    .el-dialog__title{
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+    }
+    .el-dialog__headerbtn{
+      top: 13px;
+      i{
+        color: white;
+      }
+    }
+  }
+  .el-dialog__body{
+    padding: 0 20px;
+    .text-gray{
+      color: #999;
+    }
+    .reset-content{
+      width: 80%;
+      margin: 0 auto;
+    }
+    .login-codeBtn:hover{
+      background: transparent;
+    }
+  }
+  .dialog-footer{
+    text-align: center;
+    .content-resetPas{
+      width: 80%;
+    }
+  }
+}
+
+// 必填项*号
+.required {
+  .el-form-item__label:before {
+    content: '*';
+    color: #F56C6C;
+    margin-right: 4px;
+  }
+}
+
+// 错误的输入框
+.invalid-input{
+  .el-input__inner{
+    border-color: #F56C6C;
+  }
+}
+// 产品最大借款额度
+#product-amount-max{
+  .el-form-item__content{
+    margin-left: 17px !important;
+    padding-right: 73px;
+  }
+}
+
+//图片组件
+.audit-upload {
+  .upload-view {
+    .el-upload--picture-card {
+      display: none;
+    }
+  }
+  .el-upload-list--picture-card {
+    margin-left: 15px;
+  }
+}
+
+.income-detail-form-content {
+  .el-autocomplete {
+    width: 100%;
+  }
+}
+
+.full-screen-title{
+  padding-right: 30px;
+  i{
+    float: right;
+    cursor: pointer;
+    color: #909399;
+    &:hover{
+      color: #409EFF;
+    }
+  }
+}
